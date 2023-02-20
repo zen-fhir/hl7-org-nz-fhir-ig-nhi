@@ -1,0 +1,8 @@
+{ns hl7-org-nz-fhir-ig-nhi.name-use-extra,
+ import #{zen.fhir hl7-fhir-r4-core.CodeableConcept},
+ schema {:zen/tags #{zen/schema zen.fhir/structure-schema},
+         :zen/desc "Additional name use codes for NHI names",
+         :zen.fhir/type "CodeableConcept",
+         :zen.fhir/profileUri "http://hl7.org.nz/fhir/StructureDefinition/name-use-extra",
+         :zen.fhir/version "0.6.15",
+         :confirms #{hl7-fhir-r4-core.CodeableConcept/schema}}}

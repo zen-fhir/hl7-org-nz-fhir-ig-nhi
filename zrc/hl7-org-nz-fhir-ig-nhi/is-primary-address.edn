@@ -1,0 +1,8 @@
+{ns hl7-org-nz-fhir-ig-nhi.is-primary-address,
+ import #{zen.fhir hl7-fhir-r4-core.boolean},
+ schema {:zen/tags #{zen/schema zen.fhir/structure-schema},
+         :zen/desc "Indicates this is the primary residential address - each patient must have one and only one",
+         :zen.fhir/type "boolean",
+         :zen.fhir/profileUri "http://hl7.org.nz/fhir/StructureDefinition/is-primary-address",
+         :zen.fhir/version "0.6.15",
+         :confirms #{hl7-fhir-r4-core.boolean/schema}}}
