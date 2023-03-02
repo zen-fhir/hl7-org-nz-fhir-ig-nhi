@@ -15,7 +15,7 @@
          :zen/desc "The Patient resource exposed by the NHI.",
          :zen.fhir/type "Patient",
          :zen.fhir/profileUri "http://hl7.org.nz/fhir/StructureDefinition/NhiPatient",
-         :zen.fhir/version "0.6.16-2",
+         :zen.fhir/version "0.6.16-3",
          :confirms #{zen.fhir/Resource
                      fhir-org-nz-ig-base.NzPatient/schema},
          :type zen/map,
