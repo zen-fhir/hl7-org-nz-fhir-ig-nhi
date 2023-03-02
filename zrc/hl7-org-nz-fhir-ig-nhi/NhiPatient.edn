@@ -1,5 +1,6 @@
 {ns hl7-org-nz-fhir-ig-nhi.NhiPatient,
  import #{fhir-org-nz-ig-base.NzPatient
+          hl7-org-nz-fhir-ig-nhi.value-set.nhi-contact-point-system-code-1.0
           zen.fhir
           hl7-fhir-r4-core.iso21090-preferred
           hl7-org-nz-fhir-ig-nhi.NhiAddress
@@ -8,12 +9,13 @@
           hl7-org-nz-fhir-ig-nhi.gender-original-text
           hl7-org-nz-fhir-ig-nhi.name-use-extra
           fhir-org-nz-ig-base.nz-residency
+          hl7-org-nz-fhir-ig-nhi.value-set.nhi-address-type
           hl7-org-nz-fhir-ig-nhi.birth-place},
  schema {:zen/tags #{zen.fhir/profile-schema zen/schema},
          :zen/desc "The Patient resource exposed by the NHI.",
          :zen.fhir/type "Patient",
          :zen.fhir/profileUri "http://hl7.org.nz/fhir/StructureDefinition/NhiPatient",
-         :zen.fhir/version "0.6.15",
+         :zen.fhir/version "0.6.16-2",
          :confirms #{zen.fhir/Resource
                      fhir-org-nz-ig-base.NzPatient/schema},
          :type zen/map,
@@ -29,6 +31,9 @@
                        :every {:type zen/map,
                                :keys {:suffix {:type zen/vector,
                                                :maxItems 0},
+                                      :given {:type zen/vector,
+                                              :every {:zen/desc "Given name and other given name(s)"},
+                                              :maxItems 2},
                                       :information-source {:confirms #{fhir-org-nz-ig-base.information-source/schema},
                                                            :fhir/extensionUri "http://hl7.org.nz/fhir/StructureDefinition/information-source"},
                                       :preferred {:confirms #{hl7-fhir-r4-core.iso21090-preferred/schema},
@@ -53,9 +58,19 @@
                 :identifier {:type zen/vector, :slicing {:slices {}}},
                 :birthPlace {:confirms #{hl7-org-nz-fhir-ig-nhi.birth-place/schema},
                              :fhir/extensionUri "http://hl7.org.nz/fhir/StructureDefinition/birth-place"},
-                :telecom {:type zen/vector, :maxItems 0},
+                :telecom {:type zen/vector,
+                          :every {:type zen/map,
+                                  :keys {:system {:zen.fhir/value-set {:symbol hl7-org-nz-fhir-ig-nhi.value-set.nhi-contact-point-system-code-1.0/value-set,
+                                                                       :strength :required},
+                                                  :zen/desc "phone | email"},
+                                         :use {:zen.fhir/value-set {:symbol hl7-org-nz-fhir-ig-nhi.value-set.nhi-address-type/value-set,
+                                                                    :strength :required},
+                                               :zen/desc "home | mobile"}},
+                                  :zen/desc "The Paient's contact details"},
+                          :maxItems 3},
                 :generalPractitioner {:type zen/vector,
                                       :every {:confirms #{zen.fhir/Reference},
-                                              :zen.fhir/reference {:refers #{hl7-fhir-r4-core.PractitionerRole/schema}}},
-                                      :maxItems 0},
+                                              :zen.fhir/reference {:refers #{hl7-fhir-r4-core.PractitionerRole/schema}},
+                                              :zen/desc "Reference for the Patient's enrolled general Practitioner"},
+                                      :maxItems 1},
                 :contact {:type zen/vector, :maxItems 0}}}}

@@ -4,7 +4,7 @@
           hl7-org-nz-fhir-ig-nhi.not-validated-address-reason
           fhir-org-nz-ig-base.NzAddress
           hl7-org-nz-fhir-ig-nhi.nhi-address-derived},
- schema {:zen.fhir/version "0.6.15",
+ schema {:zen.fhir/version "0.6.16-2",
          :confirms #{fhir-org-nz-ig-base.NzAddress/schema},
          :zen/tags #{zen/schema zen.fhir/structure-schema},
          :zen.fhir/profileUri "http://hl7.org.nz/fhir/StructureDefinition/NhiAddress",
@@ -14,6 +14,7 @@
          :keys {:notValidatedAddressReason {:confirms #{hl7-org-nz-fhir-ig-nhi.not-validated-address-reason/schema},
                                             :fhir/extensionUri "http://hl7.org.nz/fhir/StructureDefinition/not-validated-address-reason",
                                             :zen/desc "The reason an address was not validated"},
+                :type {:zen/desc "postal | physical"},
                 :nz-address-id {:confirms #{hl7-org-nz-fhir-ig-nhi.address-id/schema},
                                 :fhir/extensionUri "http://hl7.org.nz/fhir/StructureDefinition/nz-address-id"},
                 :nz-address-derived {:confirms #{hl7-org-nz-fhir-ig-nhi.nhi-address-derived/schema},
