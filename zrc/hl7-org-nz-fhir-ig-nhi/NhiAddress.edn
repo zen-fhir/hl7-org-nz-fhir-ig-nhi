@@ -4,7 +4,7 @@
           hl7-org-nz-fhir-ig-nhi.not-validated-address-reason
           fhir-org-nz-ig-base.NzAddress
           hl7-org-nz-fhir-ig-nhi.nhi-address-derived},
- schema {:zen.fhir/version "0.6.23-1",
+ schema {:zen.fhir/version "0.6.24",
          :confirms #{fhir-org-nz-ig-base.NzAddress/schema},
          :zen/tags #{zen/schema zen.fhir/structure-schema},
          :zen.fhir/profileUri "http://hl7.org.nz/fhir/StructureDefinition/NhiAddress",

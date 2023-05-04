@@ -3,7 +3,7 @@
  schema {:zen/tags #{zen/schema zen.fhir/structure-schema},
          :zen/desc "Address elements that are directly derived from the address validation service",
          :zen.fhir/profileUri "http://hl7.org.nz/fhir/StructureDefinition/nhi-address-derived",
-         :zen.fhir/version "0.6.23-1",
+         :zen.fhir/version "0.6.24",
          :type zen/map,
          :keys {:depQuintile {:confirms #{hl7-fhir-r4-core.decimal/schema},
                               :zen/desc "The deprivation quintile"},
