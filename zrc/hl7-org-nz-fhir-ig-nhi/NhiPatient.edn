@@ -8,14 +8,13 @@
           fhir-org-nz-ig-base.information-source
           hl7-org-nz-fhir-ig-nhi.gender-original-text
           hl7-org-nz-fhir-ig-nhi.name-use-extra
-          fhir-org-nz-ig-base.nz-residency
-          hl7-org-nz-fhir-ig-nhi.value-set.nhi-address-type
+          hl7-org-nz-fhir-ig-nhi.value-set.nhi-contactpoint-use
           hl7-org-nz-fhir-ig-nhi.birth-place},
  schema {:zen/tags #{zen.fhir/profile-schema zen/schema},
          :zen/desc "The Patient resource exposed by the NHI.",
          :zen.fhir/type "Patient",
          :zen.fhir/profileUri "http://hl7.org.nz/fhir/StructureDefinition/NhiPatient",
-         :zen.fhir/version "0.6.25-1",
+         :zen.fhir/version "0.6.27",
          :confirms #{zen.fhir/Resource
                      fhir-org-nz-ig-base.NzPatient/schema},
          :type zen/map,
@@ -34,6 +33,7 @@
                                       :given {:type zen/vector,
                                               :every {:zen/desc "Given name and other given name(s)"},
                                               :maxItems 2},
+                                      :use {:zen/desc "temp | nickname | maiden"},
                                       :information-source {:confirms #{fhir-org-nz-ig-base.information-source/schema},
                                                            :fhir/extensionUri "http://hl7.org.nz/fhir/StructureDefinition/information-source"},
                                       :preferred {:confirms #{hl7-fhir-r4-core.iso21090-preferred/schema},
@@ -50,20 +50,19 @@
                                                          :fhir/extensionUri "http://hl7.org.nz/fhir/StructureDefinition/information-source"}}},
                 :multipleBirth {:fhir/polymorphic true, :type zen/map},
                 :deceased {:fhir/polymorphic true, :type zen/map},
-                :nzResidency {:confirms #{fhir-org-nz-ig-base.nz-residency/schema},
-                              :fhir/extensionUri "http://hl7.org.nz/fhir/StructureDefinition/nz-residency"},
                 :photo {:type zen/vector, :maxItems 0},
                 :link {:type zen/vector, :maxItems 0},
                 :communication {:type zen/vector, :maxItems 0},
                 :identifier {:type zen/vector, :slicing {:slices {}}},
                 :birthPlace {:confirms #{hl7-org-nz-fhir-ig-nhi.birth-place/schema},
                              :fhir/extensionUri "http://hl7.org.nz/fhir/StructureDefinition/birth-place"},
+                :nzCitizen {:zen/desc "This field indicates New Zealand citizenship status of the patient"},
                 :telecom {:type zen/vector,
                           :every {:type zen/map,
                                   :keys {:system {:zen.fhir/value-set {:symbol hl7-org-nz-fhir-ig-nhi.value-set.nhi-contact-point-system-code-1.0/value-set,
                                                                        :strength :required},
                                                   :zen/desc "phone | email"},
-                                         :use {:zen.fhir/value-set {:symbol hl7-org-nz-fhir-ig-nhi.value-set.nhi-address-type/value-set,
+                                         :use {:zen.fhir/value-set {:symbol hl7-org-nz-fhir-ig-nhi.value-set.nhi-contactpoint-use/value-set,
                                                                     :strength :required},
                                                :zen/desc "home | mobile"}},
                                   :zen/desc "The Paient's contact details"},

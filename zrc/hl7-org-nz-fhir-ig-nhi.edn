@@ -18,5 +18,5 @@
                        "http://hl7.org.nz/fhir/StructureDefinition/name-use-extra" #zen/quote hl7-org-nz-fhir-ig-nhi.name-use-extra/schema,
                        "http://hl7.org.nz/fhir/StructureDefinition/NhiAddress" #zen/quote hl7-org-nz-fhir-ig-nhi.NhiAddress/schema}},
  value-sets {:zen/tags #{zen.fhir/value-sets},
-             :value-sets {"https://nzhts.digital.health.nz/fhir/ValueSet/nhiContactUseType" #zen/quote hl7-org-nz-fhir-ig-nhi.value-set.nhi-address-type/value-set,
+             :value-sets {"https://nzhts.digital.health.nz/fhir/ValueSet/nhiContactUseType" #zen/quote hl7-org-nz-fhir-ig-nhi.value-set.nhi-contactpoint-use/value-set,
                           "https://nzhts.digital.health.nz/fhir/ValueSet/nhi-contact-point-system-code" #zen/quote hl7-org-nz-fhir-ig-nhi.value-set.nhi-contact-point-system-code-1.0/value-set}}}

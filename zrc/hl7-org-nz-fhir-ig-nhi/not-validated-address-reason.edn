@@ -4,5 +4,5 @@
          :zen/desc "The reason why the address has not been validated",
          :zen.fhir/type "CodeableConcept",
          :zen.fhir/profileUri "http://hl7.org.nz/fhir/StructureDefinition/not-validated-address-reason",
-         :zen.fhir/version "0.6.25-1",
+         :zen.fhir/version "0.6.27",
          :confirms #{hl7-fhir-r4-core.CodeableConcept/schema}}}
