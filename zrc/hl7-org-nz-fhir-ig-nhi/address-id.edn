@@ -6,5 +6,5 @@
          :zen/desc "Uniquely identifies this address as a physical entity. Will remain constant over time even if address administrative data such as DPID change",
          :zen.fhir/type "string",
          :zen.fhir/profileUri "http://hl7.org.nz/fhir/StructureDefinition/nz-address-id",
-         :zen.fhir/version "0.6.30-13",
+         :zen.fhir/version "0.6.30-14",
          :confirms #{hl7-fhir-r4-core.string/schema}}}
