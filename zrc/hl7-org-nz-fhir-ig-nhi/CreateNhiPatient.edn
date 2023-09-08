@@ -1,6 +1,6 @@
 {ns hl7-org-nz-fhir-ig-nhi.CreateNhiPatient,
  import #{zen.fhir hl7-org-nz-fhir-ig-nhi.NhiPatient},
- schema {:zen.fhir/version "0.6.31",
+ schema {:zen.fhir/version "0.6.32",
          :confirms #{hl7-org-nz-fhir-ig-nhi.NhiPatient/schema
                      zen.fhir/Resource},
          :zen/tags #{zen.fhir/profile-schema zen/schema},
